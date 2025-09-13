@@ -1,5 +1,5 @@
 // ==================== Config ====================
-const backendURL = "https://quiz-app-backend-three-lac.vercel.app/"; // Make sure backend is running
+const backendURL = "https://quiz-app-backend-three-lac.vercel.app/api"; // hosted backend URL
 
 // ==================== DOM Elements ====================
 const formSection = document.getElementById("form-section");
@@ -27,7 +27,7 @@ studentForm.addEventListener("submit", async (e) => {
     trainerName: document.getElementById("trainerName").value,
   };
 
-  // Fetch questions from backend
+  // Fetch questions from hosted backend
   try {
     const res = await fetch(`${backendURL}/questions`);
     if (!res.ok) throw new Error("Failed to fetch questions");
@@ -40,7 +40,7 @@ studentForm.addEventListener("submit", async (e) => {
   } catch (err) {
     console.error(err);
     alert(
-      "Could not load quiz questions. Make sure the backend is running at http://localhost:5000"
+      "Could not load quiz questions. Make sure the backend is live at your hosted URL."
     );
   }
 });
@@ -81,7 +81,7 @@ submitQuiz.addEventListener("click", async () => {
     0
   );
 
-  // Submit to backend
+  // Submit to hosted backend
   try {
     const res = await fetch(`${backendURL}/students`, {
       method: "POST",
@@ -95,6 +95,6 @@ submitQuiz.addEventListener("click", async () => {
     window.location.reload(); // Reload page
   } catch (err) {
     console.error(err);
-    alert("Error submitting quiz. Make sure the backend is running.");
+    alert("Error submitting quiz. Make sure the hosted backend is live.");
   }
 });
