@@ -1,5 +1,5 @@
 // ==================== Config ====================
-const backendURL = "http://localhost:5000/api"; // Make sure backend is running
+const backendURL = "https://quiz-app-backend-three-lac.vercel.app/"; // Make sure backend is running
 
 // ==================== DOM Elements ====================
 const formSection = document.getElementById("form-section");
